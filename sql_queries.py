@@ -9,24 +9,56 @@ time_table_drop = "DROP table IF EXISTS time;"
 # CREATE TABLES
 
 songplay_table_create = ("""
-CREATE TABLE IF NOT EXISTS songplays (songplay_id SERIAL PRIMARY KEY, start_time timestamptz, user_id int NOT NULL, level varchar, song_id varchar, artist_id varchar, session_id int, location varchar, user_agent varchar);
+CREATE TABLE IF NOT EXISTS songplays (
+		songplay_id SERIAL PRIMARY KEY,
+		start_time timestamptz NOT NULL,
+		user_id INT NOT NULL,
+		LEVEL VARCHAR,
+		song_id VARCHAR,
+		artist_id VARCHAR,
+		session_id INT,
+        location VARCHAR,
+        user_agent VARCHAR);
 """)
 
 user_table_create = ("""
-CREATE TABLE IF NOT EXISTS users (user_id int PRIMARY KEY, first_name varchar, last_name varchar, gender varchar, level varchar);
+CREATE TABLE IF NOT EXISTS users (
+		user_id INT PRIMARY KEY,
+		first_name VARCHAR,
+		last_name VARCHAR,
+        gender VARCHAR,
+        LEVEL VARCHAR);
 """)
 
 song_table_create = ("""
-CREATE TABLE IF NOT EXISTS songs (song_id varchar UNIQUE NOT NULL, title varchar, artist_id varchar, year int, duration numeric);
+CREATE TABLE IF NOT EXISTS songs (
+		song_id VARCHAR PRIMARY KEY,
+		title VARCHAR,
+		artist_id VARCHAR NOT NULL,
+        YEAR INT,
+        duration NUMERIC);
 """)
 
 artist_table_create = ("""
-CREATE TABLE IF NOT EXISTS artists (artist_id varchar UNIQUE NOT NULL, name varchar,  location varchar, latitude decimal, longitude decimal);
+CREATE TABLE IF NOT EXISTS artists (
+		artist_id VARCHAR PRIMARY KEY,
+		NAME VARCHAR,
+		location VARCHAR,
+		latitude DECIMAL,
+		longitude DECIMAL);
 
 """)
 
 time_table_create = ("""
-CREATE TABLE IF NOT EXISTS time (start_time timestamptz, hour int, day int, week int, month int, year int, weekday varchar);
+CREATE TABLE IF NOT EXISTS time (
+		time_id SERIAL PRIMARY KEY,
+		start_time timestamptz,
+		HOUR INT,
+		DAY INT,
+		WEEK INT,
+		MONTH INT,
+		YEAR INT,
+		weekday VARCHAR);
 
 """)
 

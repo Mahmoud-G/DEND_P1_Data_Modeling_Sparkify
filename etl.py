@@ -6,6 +6,19 @@ from sql_queries import *
 
 
 def process_song_file(cur, filepath):
+    """
+        Process songs files and insert records into the Postgres database.
+        the function takes both the established cursor(cur) to the database and
+        filepath to the song file (filepath)
+
+         Parameters
+        ----------
+        cur :
+            Database cursor reference
+        filepath : string
+            The file system path to a song files
+
+    """
     # open song file
     df = pd.DataFrame([pd.read_json(filepath, typ='dictionary')])
 
@@ -19,6 +32,19 @@ def process_song_file(cur, filepath):
 
 
 def process_log_file(cur, filepath):
+    """
+        Process log files and insert records into the Postgres database.
+        the function takes both the established cursor(cur) to the database and
+        filepath to the log file (filepath)
+
+         Parameters
+        ----------
+        cur :
+            Database cursor reference
+        filepath : string
+            The file system path to a log files
+
+    """
     # open log file
     df = pd.DataFrame(pd.read_json(filepath, lines=True))
 

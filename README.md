@@ -16,6 +16,7 @@ They'd like a data engineer to create a Postgres database with tables designed t
 
 ## Database Schema
 ### This star schema contains:
+![](Screenshot_2022-02-27_at_10.59.17_AM.png)
 - Fact Table
   - songplay
 - Dimension tables:
